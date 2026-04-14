@@ -614,7 +614,7 @@ const SIDE_QUESTS_DATA = [
         title: 'The 4-Hour Workweek by Tim Ferriss',
         date: 'Nov 17, 2020',
         rating: '',
-        thumbnail: '',
+        thumbnail: 'assets/images/book-tim-ferriss.png',
         body: '<blockquote>"By working faithfully eight hours a day, you may eventually get to be a boss and work twelve hours a day."<br>— Robert Frost</blockquote>' +
           '<h3>The Book in Three Lines</h3>' +
           '<ul>' +
@@ -658,7 +658,7 @@ const SIDE_QUESTS_DATA = [
         title: 'Show Your Work by Austin Kleon',
         date: 'Nov 2020',
         rating: '',
-        thumbnail: '',
+        thumbnail: 'assets/images/book-show-your-work.png',
         body: '<h3>The Book in Three Sentences</h3>' +
           '<ul>' +
           '<li>Sharing your work doesn\'t require you to be a genius, just consistent and generous, open and not secretive.</li>' +
@@ -693,7 +693,7 @@ const SIDE_QUESTS_DATA = [
         title: 'Steal Like an Artist by Austin Kleon',
         date: 'Oct 25, 2020',
         rating: '',
-        thumbnail: '',
+        thumbnail: 'assets/images/book-steal-like-artist.png',
         body: '<h3>The Book in Two Sentences</h3>' +
           '<ul>' +
           '<li>There\'s no such thing as "original art". You steal from <strong>many</strong> sources and make it something better.</li>' +
@@ -725,7 +725,7 @@ const SIDE_QUESTS_DATA = [
         title: '101 Secrets for Your Twenties by Paul Angone',
         date: 'Sep 2020',
         rating: '',
-        thumbnail: '',
+        thumbnail: 'assets/images/book-101-secrets.png',
         body: '<h3>Impressions</h3>' +
           '<p>A really nice book to have read just before going to uni (I\'m leaving for France in a week). Reaffirmed my beliefs on making a website, taking risks, and encouraged me to do both of these things with more persuasive arguments (and flawless analogies).</p>' +
           '<h3>How the Book Changed Me</h3>' +
