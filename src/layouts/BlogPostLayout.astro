@@ -1,0 +1,65 @@
+---
+import Nav from '../components/Nav.astro';
+
+const { title, description, date, image, imageAlt } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — Nehal Agrawal</title>
+  <meta name="description" content={description}>
+  <meta name="author" content="Nehal Agrawal">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="article">
+  <meta property="og:url" content={Astro.url}>
+  {image && <meta property="og:image" content={new URL(image, Astro.site)}>}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href={Astro.url}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+  <Nav activePage="blog" />
+
+  <main class="blog-post-layout">
+    <div class="blog-post-inner">
+
+      <a href="/blog/" class="blog-back">&larr; All posts</a>
+
+      <header class="post-header">
+        <p class="post-meta">{formattedDate}</p>
+        <h1 class="post-title">{title}</h1>
+        <p class="post-subtitle">{description}</p>
+        {image && (
+          <div class="post-hero-img">
+            <img src={image} alt={imageAlt || title}>
+          </div>
+        )}
+      </header>
+
+      <article class="post-body">
+        <slot />
+      </article>
+
+      <footer class="post-footer">
+        <p class="post-footer-bio">Nehal Agrawal is a GTM engineer at Invigilo AI, building sales pipelines and AI-powered workflows. <a href="https://www.linkedin.com/in/thenehalagrawal" target="_blank" rel="noopener">Follow on LinkedIn</a></p>
+        <a href="/blog/" class="blog-back">&larr; All posts</a>
+      </footer>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,282 @@
+/* ── BLOG LISTING ── */
+.blog-listing-layout {
+  padding: 48px 24px 80px;
+}
+
+.blog-listing-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.blog-listing-header {
+  margin-bottom: 40px;
+}
+
+.blog-listing-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+
+.blog-listing-sub {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* ── POST LIST ── */
+.blog-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.blog-post-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  padding: 20px 18px;
+  border-radius: 10px;
+  transition: opacity 0.15s;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.blog-post-row-img {
+  width: 88px;
+  height: 68px;
+  border-radius: 6px;
+  background: #CBD5E1;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.blog-post-row-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-post-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-post-row:hover {
+  opacity: 0.7;
+}
+
+.blog-post-row:nth-child(1) { background: #E8F7F9; }
+.blog-post-row:nth-child(2) { background: #FFF0DC; }
+.blog-post-row:nth-child(3) { background: #FDEAEC; }
+.blog-post-row:nth-child(4) { background: #D4F4D8; }
+.blog-post-row:nth-child(5) { background: #FDEADC; }
+
+.blog-post-row-meta {
+  font-size: 11.5px;
+  color: #94A3B8;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.blog-post-row-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.blog-post-row-excerpt {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.6;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-post-row-cta {
+  display: none;
+}
+
+/* ── POST PAGE ── */
+.blog-post-layout {
+  padding: 40px 24px 80px;
+}
+
+.blog-post-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.blog-back {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #94A3B8;
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.15s;
+}
+
+.blog-back:hover {
+  color: #475569;
+}
+
+/* ── POST HEADER ── */
+.post-header {
+  margin-bottom: 36px;
+}
+
+.post-meta {
+  font-size: 11.5px;
+  color: #94A3B8;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.post-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0F172A;
+  margin-bottom: 12px;
+}
+
+.post-subtitle {
+  font-size: 15px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* ── POST HERO IMAGE ── */
+.post-hero-img {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  background: #E2E8F0;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.post-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── POST BODY ── */
+.post-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.post-body p {
+  margin-bottom: 20px;
+}
+
+.post-body h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.post-body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+
+.post-body ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.post-body li {
+  margin-bottom: 6px;
+}
+
+/* ul in post body = checklist style (markdown renders lists without class) */
+.post-body ul, .post-body ul.post-checklist {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+
+.post-body ul li, .post-body ul.post-checklist li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+}
+
+.post-body ul li::before, .post-body ul.post-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 3px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.post-body a {
+  color: #0F172A;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-body strong {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* ── POST FOOTER ── */
+.post-footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-footer-bio {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+.post-footer-bio a {
+  color: #0F172A;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #CBD5E1;
+}
+
+/* ── NAV ACTIVE STATE ── */
+.nav-active {
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}

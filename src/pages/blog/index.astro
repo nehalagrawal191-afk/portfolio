@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Nav from '../../components/Nav.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Nehal Agrawal</title>
+  <meta name="description" content="GTM, AI in sales, and building modern go-to-market systems. Written by Nehal Agrawal.">
+  <meta name="author" content="Nehal Agrawal">
+  <link rel="canonical" href="https://nehall.com/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+  <Nav activePage="blog" />
+
+  <main class="blog-listing-layout">
+    <div class="blog-listing-inner">
+      <header class="blog-listing-header">
+        <h1 class="blog-listing-title">Writing</h1>
+        <p class="blog-listing-sub">GTM, AI in sales, and building modern go-to-market systems.</p>
+      </header>
+
+      <div class="blog-post-list">
+        {posts.map((post) => {
+          const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+          });
+          return (
+            <a href={`/blog/${post.id}/`} class="blog-post-row">
+              <div class="blog-post-row-img">
+                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title}>}
+              </div>
+              <div class="blog-post-row-body">
+                <div class="blog-post-row-meta">{formattedDate}</div>
+                <h2 class="blog-post-row-title">{post.data.title}</h2>
+                <p class="blog-post-row-excerpt">{post.data.description}</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </main>
+</body>
+</html>

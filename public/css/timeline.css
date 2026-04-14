@@ -1,0 +1,122 @@
+/* ── SCROLL WRAPPER ── */
+#timeline-scroll-wrapper {
+  overflow: visible;
+  position: relative;
+  margin-top: 24px;
+  padding-bottom: 8px;
+}
+
+/* ── MAIN CONTAINER ── */
+#timeline-container {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: visible;
+}
+
+/* ── AXIS (now full-height container for bar + ticks + labels) ── */
+#timeline-axis {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ── BRACKET CONTAINERS ── */
+#timeline-brackets {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── ITEMS CONTAINER ── */
+#timeline-items {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+#timeline-items button {
+  pointer-events: auto;
+}
+
+/* ── SPAN BARS (unused, kept for compat) ── */
+#timeline-span-bars {
+  display: none;
+}
+
+/* ── WORK EXPERIENCE LABELS ── */
+.timeline-work-label {
+  position: absolute;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 2px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s;
+}
+
+.timeline-work-label:hover {
+  opacity: 0.7;
+}
+
+/* ── ANNOTATION LABELS ── */
+.timeline-annotation-label {
+  position: absolute;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  font-weight: 500;
+  color: #94A3B8;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  transition: color 0.15s;
+}
+
+.timeline-annotation-label:hover {
+  color: #475569;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  #timeline-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #timeline-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  #timeline-container {
+    min-width: 700px;
+  }
+}
+
+/* ── CURRENT YEAR PIN ── */
+#timeline-pin {
+  position: absolute;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 6;
+}

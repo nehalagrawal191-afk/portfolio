@@ -1,0 +1,192 @@
+/* ── WORKFLOWS GRID ── */
+#workflows-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+
+#workflows-grid::-webkit-scrollbar {
+  display: none;
+}
+
+#workflows-grid .side-quest-card {
+  flex: 0 0 220px;
+  min-width: 220px;
+}
+
+#workflows-grid .card-cover {
+  height: 200px;
+}
+
+/* ── SIDE QUESTS GRID ── */
+#side-quests-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 24px;
+  align-items: stretch;
+}
+
+/* ── CARD ── */
+.side-quest-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.side-quest-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border-color: #CBD5E1;
+}
+
+.side-quest-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+}
+
+/* ── CARD COVER ── */
+.card-cover {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.side-quest-card:hover .card-cover img {
+  transform: scale(1.04);
+}
+
+.card-color-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── CARD BODY ── */
+.card-body {
+  padding: 16px;
+}
+
+.card-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+}
+
+.card-description {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.card-cta {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s, gap 0.15s;
+}
+
+.side-quest-card:hover .card-cta {
+  color: #0F172A;
+  gap: 7px;
+}
+
+.card-cta::after {
+  content: '→';
+}
+
+/* ── TOOLS & WORKFLOWS MARQUEE ── */
+.tools-marquee-wrapper {
+  overflow: hidden;
+  margin-top: 24px;
+  padding: 4px 0 20px;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.tools-marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.tools-marquee-wrapper:hover .tools-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.tool-card {
+  flex: 0 0 160px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tool-card-img {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tool-card-name {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+  padding: 10px 14px;
+  letter-spacing: -0.01em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  #side-quests-grid {
+    flex-direction: column;
+  }
+  #side-quests-grid .side-quest-card {
+    flex: none;
+    width: 100%;
+  }
+}
