@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import Nav from '../../components/Nav.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -22,8 +21,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <link rel="stylesheet" href="/css/blog.css">
 </head>
 <body>
-  <Nav activePage="blog" />
-
   <main class="blog-listing-layout">
     <div class="blog-listing-inner">
       <header class="blog-listing-header">

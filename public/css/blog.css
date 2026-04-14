@@ -259,7 +259,18 @@
   border-top: 1px solid #F1F5F9;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
+}
+
+.post-footer-linkedin {
+  color: #94A3B8;
+  display: inline-flex;
+  transition: color 0.15s;
+}
+
+.post-footer-linkedin:hover {
+  color: #0A66C2;
 }
 
 .post-footer-bio {
