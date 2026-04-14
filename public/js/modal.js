@@ -214,7 +214,9 @@
       return '<div style="margin-bottom:40px;">' +
         '<h3 style="font-family:\'DM Sans\',sans-serif;font-size:18px;font-weight:700;color:#0F172A;margin-bottom:16px;">' + esc(f.title) + '</h3>' +
         '<div style="display:flex;gap:20px;align-items:flex-start;">' +
-          '<video src="' + esc(f.video) + '" controls style="width:45%;flex-shrink:0;border-radius:12px;"></video>' +
+          (f.video.indexOf('youtube.com') !== -1 || f.video.indexOf('youtu.be') !== -1
+            ? '<iframe src="' + esc(f.video) + '" frameborder="0" allowfullscreen style="width:45%;flex-shrink:0;border-radius:12px;aspect-ratio:9/16;"></iframe>'
+            : '<video src="' + esc(f.video) + '" controls style="width:45%;flex-shrink:0;border-radius:12px;"></video>') +
           '<div style="flex:1;display:flex;flex-direction:column;gap:10px;">' +
             '<div style="background:#F8FAFC;border-radius:10px;padding:12px 14px;">' +
               '<p style="font-family:\'DM Sans\',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;margin-bottom:5px;">What I did</p>' +
@@ -381,7 +383,10 @@
   function buildWorkflowHTML(item) {
     var imgHTML = '';
     if (item.video) {
-      imgHTML = '<video src="' + esc(item.video) + '" controls playsinline style="width:100%;border-radius:12px;margin-bottom:20px;background:#000;display:block;"></video>';
+      var isYouTube = item.video.indexOf('youtube.com') !== -1 || item.video.indexOf('youtu.be') !== -1;
+      imgHTML = isYouTube
+        ? '<iframe width="100%" height="340" src="' + esc(item.video) + '" frameborder="0" allowfullscreen style="border-radius:12px;margin-bottom:20px;display:block;"></iframe>'
+        : '<video src="' + esc(item.video) + '" controls playsinline style="width:100%;border-radius:12px;margin-bottom:20px;background:#000;display:block;"></video>';
     } else {
       var imgSrc = item.modalImage || item.coverImage;
       imgHTML = imgSrc

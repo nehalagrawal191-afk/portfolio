@@ -299,7 +299,7 @@ const WORKFLOWS_DATA = [
     coverImage: 'assets/images/workflows/invigilo_outreach.png',
     coverColor: '#F0F4FF',
     customModal: 'workflow',
-    video: 'assets/videos/outreach.mov',
+    video: 'https://www.youtube.com/embed/ibJqjhJeVp4',
     objective: 'build a web app to automate end-to-end outreach for Invigilo.',
     whatIDid: 'used a SQLite database with Claude Code as the orchestration layer and Tailscale for secure multi-user access. Connected Apollo, Lemlist, and PhantomBuster to Outlook and HubSpot for prospecting, sequencing, and follow-ups.',
     results: '100% reduction in agency costs — stopped using third-party outreach agencies like 1000 Steps and Nuggt.io, and 90% increase in efficiency writing outreach emails and follow-ups for events.',
@@ -761,14 +761,14 @@ const SIDE_QUESTS_DATA = [
     failureEntries: [
       {
         title: 'Figma X Claude',
-        video: 'assets/videos/figma-claude.mov',
+        video: 'https://www.youtube.com/embed/gFe37o-e18g',
         whatIDid: 'Used Claude Code to build a Figma website with vertical scrolling and an interactive element for a portfolio.',
         whatFailed: 'It was over-indexed on visual novelty without clear user value or usability.',
         whatNext: 'Prioritize usability testing early, even with rough coded prototypes before investing in complex builds.'
       },
       {
         title: 'All-in-One Sales Platform',
-        video: 'assets/videos/all-in-one-sales.mov',
+        video: 'https://www.youtube.com/embed/FUthUQz9VUA',
         whatIDid: 'Wanted to solve the fragmented tooling problem so I built a prototype for an all-in-one, integration-heavy sales platform.',
         whatFailed: 'Stitching multiple APIs on a loosely structured codebase led to brittle integrations and unreliable deployments.',
         whatNext: 'Modular agents handling specific workflows are far better.'
