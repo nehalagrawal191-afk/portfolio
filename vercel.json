@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/ai-in-sales-gtm/",
+      "destination": "/blog/step-0-gtm-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-in-sales-gtm",
+      "destination": "/blog/step-0-gtm-engineering/",
+      "permanent": true
+    }
+  ]
+}
