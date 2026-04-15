@@ -21,6 +21,8 @@ I've said it before, I'll say it again: GTM engineering is one piece of this. It
 - check for buying signals (recent tools, hiring, funding, behavior)
 - validate scale (can you find 50–100 real matches today?)
 
+![Customer mapping framework](/assets/images/blog/gem.png)
+
 ## 2. Map what revenue actually looks like
 
 What does a closed deal look like? What size, what sales cycle, what does the buyer need to see before they move? This shapes everything downstream- how you prioritise channels, what counts as a qualified lead, what "working" means for your outreach.
