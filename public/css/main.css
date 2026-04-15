@@ -477,3 +477,47 @@ section {
   max-width: 780px;
   margin: 0 auto;
 }
+
+/* ── WORKFLOWS TOGGLE ── */
+.workflows-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.workflows-toggle .section-label {
+  margin: 0;
+}
+
+.workflows-chevron {
+  color: #94A3B8;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.workflows-toggle[aria-expanded="true"] .workflows-chevron {
+  transform: rotate(180deg);
+}
+
+.workflows-body {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.workflows-body--closed {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.workflows-body--open {
+  max-height: 2000px;
+  opacity: 1;
+  pointer-events: auto;
+}
