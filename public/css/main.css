@@ -521,3 +521,28 @@ section {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* ── EMAIL TOOLTIP ── */
+.nav-email-wrap {
+  position: relative;
+  cursor: default;
+}
+
+.nav-email-tooltip {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #0F172A;
+  color: #F8FAFC;
+  font-size: 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.nav-email-wrap:hover .nav-email-tooltip {
+  display: block;
+}
