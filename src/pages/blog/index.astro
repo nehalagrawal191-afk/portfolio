@@ -1,8 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Group posts by series
+const seriesMap = new Map<string, typeof allPosts>();
+allPosts.forEach(post => {
+  if (post.data.series) {
+    if (!seriesMap.has(post.data.series)) {
+      seriesMap.set(post.data.series, []);
+    }
+    seriesMap.get(post.data.series)!.push(post);
+  }
+});
+
+const seriesList = Array.from(seriesMap.entries()).map(([name, posts]) => {
+  const sorted = posts.sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+  return { name, count: posts.length, firstPost: sorted[0], desc: sorted[0].data.description };
+});
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,59 +26,94 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <title>GTM Engineering Blog — AI Sales Automation | Nehal Agrawal</title>
-  <meta name="description" content="Practical writing on GTM engineering, AI in sales, and building modern go-to-market systems. By Nehal Agrawal.">
+  <title>Writing — Nehal Agrawal</title>
+  <meta name="description" content="Notes, essays, and technical walkthroughs on GTM engineering, AI agents, and revenue systems. By Nehal Agrawal.">
   <meta name="author" content="Nehal Agrawal">
   <link rel="canonical" href="https://nehall.com/blog/">
-  <meta property="og:title" content="GTM Engineering Blog — AI Sales Automation | Nehal Agrawal">
-  <meta property="og:description" content="Practical writing on GTM engineering, AI in sales, and building modern go-to-market systems. By Nehal Agrawal.">
+  <meta property="og:title" content="Writing — Nehal Agrawal">
+  <meta property="og:description" content="Notes, essays, and technical walkthroughs on GTM engineering, AI agents, and revenue systems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nehall.com/blog/">
   <meta property="og:image" content="https://nehall.com/assets/images/nehal.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GTM Engineering Blog — AI Sales Automation | Nehal Agrawal">
-  <meta name="twitter:description" content="Practical writing on GTM engineering, AI in sales, and building modern go-to-market systems. By Nehal Agrawal.">
+  <meta name="twitter:title" content="Writing — Nehal Agrawal">
+  <meta name="twitter:description" content="Notes, essays, and technical walkthroughs on GTM engineering, AI agents, and revenue systems.">
   <meta name="twitter:image" content="https://nehall.com/assets/images/nehal.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/blog.css">
 </head>
 <body>
-  <main class="blog-listing-layout">
-    <div class="blog-listing-inner">
-      <header class="blog-listing-header">
-        <h1 class="blog-listing-title">Writing</h1>
-        <p class="blog-listing-sub">GTM, AI in sales, and building modern go-to-market systems.</p>
-      </header>
 
-      <div class="blog-post-list">
-        {posts.map((post) => {
-          const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-          });
-          return (
-            <a href={`/blog/${post.id}/`} class="blog-post-row">
-              <div class="blog-post-row-img">
-                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title}>}
-              </div>
-              <div class="blog-post-row-body">
-                <div class="blog-post-row-meta">{formattedDate}</div>
-                {post.data.series && (
-                  <div class="blog-post-row-series">{post.data.series} · Part {post.data.seriesPart}</div>
-                )}
-                <h2 class="blog-post-row-title">{post.data.title}</h2>
-                <p class="blog-post-row-excerpt">{post.data.description}</p>
-              </div>
-            </a>
-          );
-        })}
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-brand">Nehal Agrawal</a>
+      <div class="blog-nav-links">
+        <a href="/blog/" class="blog-nav-active">Articles</a>
       </div>
     </div>
+  </nav>
+
+  <main class="blog-listing-layout">
+    <div class="blog-page-inner">
+
+      <header class="blog-hero">
+        <h1 class="blog-hero-title">building the future of <em>go-to-market systems</em>, <em>AI agents</em>, and <em>revenue engines</em>.</h1>
+        <p class="blog-hero-sub">Notes, essays, and technical walkthroughs by Nehal Agrawal.</p>
+        <p class="blog-hero-sub">GTM engineer at Invigilo AI.</p>
+      </header>
+
+      {seriesList.length > 0 && (
+        <section class="blog-section">
+          <div class="blog-section-header">
+            <span class="blog-section-label">Featured Series</span>
+          </div>
+          <div class="blog-series-grid">
+            {seriesList.map(({ name, count, firstPost, desc }) => (
+              <a href={`/blog/${firstPost.id}/`} class="blog-series-card">
+                <div class="blog-series-badges">
+                  <span class="blog-series-badge-parts">{count} {count === 1 ? 'Part' : 'Parts'}</span>
+                  <span class="blog-series-badge-status">In Progress</span>
+                </div>
+                <div class="blog-series-title">{name}</div>
+                <div class="blog-series-desc">{desc}</div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section class="blog-section">
+        <div class="blog-section-header">
+          <span class="blog-section-label">Latest Articles</span>
+        </div>
+        <div class="blog-articles-list">
+          {allPosts.map((post) => {
+            const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+            });
+            return (
+              <a href={`/blog/${post.id}/`} class="blog-article-row">
+                {post.data.series && (
+                  <div class="blog-article-series-tag">{post.data.series} · Part {post.data.seriesPart}</div>
+                )}
+                <div class="blog-article-top">
+                  <span class="blog-article-title">{post.data.title}</span>
+                  <span class="blog-article-date">{formattedDate}</span>
+                </div>
+                <p class="blog-article-desc">{post.data.description}</p>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+
+    </div>
   </main>
+
 </body>
 </html>
