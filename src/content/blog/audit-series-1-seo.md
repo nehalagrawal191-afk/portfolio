@@ -17,6 +17,8 @@ Give it a complete URL export and it's useful as a triage layer. Paste the CSV a
 
 Content-level analysis works too. Paste a page and ask whether the meta description reflects what the page actually covers, or whether the heading hierarchy makes sense for the target keyword. For anything where the input is text and the judgment is structural, the output is generally reliable.
 
+![SEO audit meta description breakdown across 79 indexable pages](/assets/images/blog/seo-audit-meta-table.png)
+
 ## What you do yourself
 
 **Extract URLs with Screaming Frog first.** Every URL, crawled fresh, not a sample. The export is the input Claude works from — if the export is stale or partial, the analysis inherits those gaps.

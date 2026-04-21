@@ -1,0 +1,87 @@
+<div class="email-signup">
+  <p class="email-signup-heading">Stay in the loop</p>
+  <form class="email-signup-form" action="https://nehals-newsletter-559993.beehiiv.com/subscribe" method="POST" target="_blank">
+    <input
+      type="email"
+      name="email"
+      placeholder="your@email.com"
+      required
+      class="email-signup-input"
+    />
+    <button type="submit" class="email-signup-btn">Subscribe →</button>
+  </form>
+  <p class="email-signup-fine">No spam. Unsubscribe anytime.</p>
+</div>
+
+<style>
+.email-signup {
+  background: #F8FAFC;
+  border: 1px solid #F1F5F9;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-top: 48px;
+}
+
+.email-signup-heading {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F172A;
+  margin: 0 0 14px 0;
+}
+
+.email-signup-form {
+  display: flex;
+  gap: 8px;
+}
+
+.email-signup-input {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13.5px;
+  color: #0F172A;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 7px;
+  padding: 9px 13px;
+  flex: 1;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.email-signup-input::placeholder {
+  color: #94A3B8;
+}
+
+.email-signup-input:focus {
+  border-color: #94A3B8;
+}
+
+.email-signup-btn {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #0F172A;
+  border: none;
+  border-radius: 7px;
+  padding: 9px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.email-signup-btn:hover {
+  opacity: 0.85;
+}
+
+.email-signup-fine {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11.5px;
+  color: #94A3B8;
+  margin: 10px 0 0 0;
+}
+
+.email-signup-input {
+  min-width: 0;
+}
+</style>

@@ -1,4 +1,5 @@
 ---
+import EmailSignup from '../components/EmailSignup.astro';
 const { title, description, date, image, imageAlt, seriesPosts = [], currentPostId, seriesName } = Astro.props;
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -77,6 +78,8 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
       <article class="post-body">
         <slot />
       </article>
+
+      <EmailSignup />
 
       <footer class="post-footer">
         <a href="https://www.linkedin.com/in/thenehalagrawal" target="_blank" rel="noopener" aria-label="LinkedIn" class="post-footer-linkedin">
