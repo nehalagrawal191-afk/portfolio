@@ -291,3 +291,90 @@
   color: #0F172A !important;
   font-weight: 600 !important;
 }
+
+/* ── SERIES CARD ── */
+.series-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 36px;
+}
+
+.series-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.series-card-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 14px;
+}
+
+.series-card-parts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.series-part-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.series-part-row:hover {
+  background: #E2E8F0;
+}
+
+.series-part-current {
+  background: #0F172A;
+}
+
+.series-part-current:hover {
+  background: #1E293B;
+}
+
+.series-part-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: #CBD5E1;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.series-part-current .series-part-num {
+  color: #64748B;
+}
+
+.series-part-title {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.series-part-current .series-part-title {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* ── SERIES BADGE (blog listing) ── */
+.blog-post-row-series {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #94A3B8;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}

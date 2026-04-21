@@ -1,5 +1,5 @@
 ---
-const { title, description, date, image, imageAlt } = Astro.props;
+const { title, description, date, image, imageAlt, seriesPosts = [], currentPostId, seriesName } = Astro.props;
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
   month: 'long',
@@ -46,6 +46,24 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
           </div>
         )}
       </header>
+
+      {seriesPosts.length > 0 && (
+        <div class="series-card">
+          <div class="series-card-label">SERIES · {seriesPosts.length} PARTS</div>
+          <div class="series-card-title">{seriesName}</div>
+          <div class="series-card-parts">
+            {seriesPosts.map((p: any) => (
+              <a
+                href={`/blog/${p.id}/`}
+                class={`series-part-row${p.id === currentPostId ? ' series-part-current' : ''}`}
+              >
+                <span class="series-part-num">0{p.data.seriesPart}</span>
+                <span class="series-part-title">{p.data.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <article class="post-body">
         <slot />
