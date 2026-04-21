@@ -17,7 +17,7 @@
 }
 
 .blog-nav-inner {
-  max-width: 860px;
+  max-width: 780px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@
 }
 
 .blog-page-inner {
-  max-width: 860px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -96,7 +96,7 @@
 
 /* ── SECTION ── */
 .blog-section {
-  padding: 40px 0 0;
+  padding: 24px 0 0;
 }
 
 .blog-section-header {
@@ -120,7 +120,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  padding-bottom: 48px;
+  padding-bottom: 0;
 }
 
 .blog-series-card {
