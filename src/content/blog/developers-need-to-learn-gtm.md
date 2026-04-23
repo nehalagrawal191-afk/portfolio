@@ -1,6 +1,6 @@
 ---
-title: "Developers need to learn GTM"
-description: "Building is solved. The bottleneck is distribution, and most developers haven't noticed yet."
+title: "Code isn't enough anymore"
+description: "Why developers need to learn and master GTM"
 date: 2026-04-22
 draft: false
 ---
