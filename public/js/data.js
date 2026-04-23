@@ -390,6 +390,13 @@ const SIDE_QUESTS_DATA = [
     speakingEntries: [
       {
         type: 'images',
+        images: ['assets/images/ps-claude-code-1.jpg', 'assets/images/ps-claude-code-2.jpg'],
+        caption: 'presenting outreach systems built with claude code',
+        link: 'https://www.linkedin.com/posts/thenehalagrawal_can-i-just-point-out-the-sheer-diversity-ugcPost-7452961767216951296-869f?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9HVqEBVXIXpUOWFkQRPaLsRf-LbhMg0i8',
+        linkLabel: 'See more'
+      },
+      {
+        type: 'images',
         images: ['assets/images/ps6.jpg', 'assets/images/ps8.jpg'],
         caption: 'presenting my N8N X claude workflow at the Women in AI festival',
         link: 'https://www.linkedin.com/posts/thenehalagrawal_spent-my-saturday-at-the-women-in-ai-for-activity-7439308382471352320-SAOa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9HVqEBVXIXpUOWFkQRPaLsRf-LbhMg0i8',
