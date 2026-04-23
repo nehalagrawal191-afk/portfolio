@@ -204,8 +204,7 @@
         captionHTML +
       '</div>';
     });
-    return '<p class="modal-section-label" style="margin-bottom:24px;">Public Speaking</p>' +
-      entries.join('<div style="height:1px;background:#E2E8F0;margin-bottom:28px;"></div>');
+    return entries.join('<div style="height:1px;background:#E2E8F0;margin-bottom:28px;"></div>');
   }
 
   // ── FAILURES MODAL ──
