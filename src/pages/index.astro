@@ -45,6 +45,7 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
         <li><a href="#tools-workflows">Tools</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="/blog/">Blog</a></li>
+        <li><a href="#community-videos">Videos</a></li>
         <li><a href="#side-quests">Side quests</a></li>
         <li class="nav-icons">
           <a href="https://www.linkedin.com/in/thenehalagrawal" target="_blank" rel="noopener" class="nav-icon-link" aria-label="LinkedIn">
@@ -126,6 +127,21 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
         })}
       </div>
       <a href="/blog/" class="blog-preview-more">All posts &rarr;</a>
+    </div>
+  </section>
+
+  <!-- COMMUNITY VIDEOS -->
+  <section id="community-videos">
+    <div class="section-inner">
+      <h2 class="section-label">community videos i've made</h2>
+      <div class="videos-scroll-row">
+        <div class="video-block">
+          <iframe src="https://www.youtube.com/embed/Ltxi24TLcuU" frameborder="0" allowfullscreen title="Community video 1"></iframe>
+        </div>
+        <div class="video-block">
+          <iframe src="https://www.youtube.com/embed/B9z4r2ko6UU" frameborder="0" allowfullscreen title="Community video 2"></iframe>
+        </div>
+      </div>
     </div>
   </section>
 

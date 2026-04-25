@@ -540,3 +540,35 @@ section {
 .nav-email-wrap:hover .nav-email-tooltip {
   display: block;
 }
+
+/* ── COMMUNITY VIDEOS ── */
+.videos-scroll-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.videos-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.video-block {
+  flex: 0 0 calc(33.333% - 11px);
+  min-width: 260px;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F1F5F9;
+  aspect-ratio: 16 / 9;
+}
+
+.video-block iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+}
