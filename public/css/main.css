@@ -349,8 +349,8 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 16px;
-  border-radius: 10px;
+  padding: 10px 0;
+  border-radius: 0;
   text-decoration: none;
   transition: opacity 0.15s;
   min-width: 0;
