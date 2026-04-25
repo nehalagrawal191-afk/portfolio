@@ -114,9 +114,6 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
           const label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
           return (
             <a href={`/blog/${post.id}/`} class="blog-preview-row">
-              <div class="blog-preview-img">
-                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title}>}
-              </div>
               <div class="blog-preview-text">
                 <div class="blog-preview-title">{post.data.title}</div>
                 <div class="blog-preview-sub">{post.data.description}</div>
