@@ -337,6 +337,14 @@ section {
   border-bottom: 1px solid #F1F5F9;
 }
 
+#blog-preview .section-inner {
+  background: #FAFAFA;
+  border: 1px solid #F1F5F9;
+  border-radius: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .blog-preview-list {
   margin-top: 16px;
   display: flex;
