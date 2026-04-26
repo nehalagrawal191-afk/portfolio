@@ -16,6 +16,32 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/cards.css">
+  <style>
+    #workflows-grid.workflows-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow-x: visible;
+      flex-direction: unset;
+    }
+    #workflows-grid.workflows-grid-full .side-quest-card {
+      flex: unset;
+      min-width: unset;
+      width: 100%;
+    }
+    #workflows-grid.workflows-grid-full .card-cover {
+      height: 200px;
+    }
+    @media (max-width: 700px) {
+      #workflows-grid.workflows-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      #workflows-grid.workflows-grid-full {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
   <link rel="stylesheet" href="/css/modal.css">
   <link rel="stylesheet" href="/css/hovercard.css">
 </head>
@@ -47,7 +73,7 @@
       <a href="/" class="blog-back" style="display:inline-block;font-size:13px;font-weight:500;color:#94A3B8;text-decoration:none;margin-bottom:32px;">&larr; Back to portfolio</a>
       <h1 class="section-label" style="font-size:clamp(22px,4vw,32px);font-weight:800;margin-bottom:8px;">tools &amp; workflows</h1>
       <p style="font-size:14px;color:#64748B;margin-bottom:40px;">things i've built and automated</p>
-      <div id="workflows-grid"></div>
+      <div id="workflows-grid" class="workflows-grid-full"></div>
     </div>
   </main>
 
@@ -61,6 +87,23 @@
 
   <script src="/js/data.js" is:inline></script>
   <script src="/js/modal.js" is:inline></script>
-  <script src="/js/main.js" is:inline></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      var grid = document.getElementById('workflows-grid');
+      if (!grid || typeof WORKFLOWS_DATA === 'undefined') return;
+      WORKFLOWS_DATA.forEach(function (wf) {
+        var btn = document.createElement('button');
+        btn.className = 'side-quest-card';
+        btn.dataset.id = wf.id;
+        var imgStyle = 'width:100%;height:100%;object-fit:cover;' + (wf.coverPosition ? 'object-position:' + wf.coverPosition + ';' : '');
+        var coverHTML = wf.coverImage
+          ? '<div class="card-cover"><img src="/' + wf.coverImage + '" alt="' + wf.title + '" loading="lazy" style="' + imgStyle + '"></div>'
+          : '<div class="card-cover"><div class="card-color-placeholder" style="background:' + (wf.coverColor || '#E2E8F0') + '"></div></div>';
+        btn.innerHTML = coverHTML + '<div class="card-body"><h3 class="card-title">' + wf.title + '</h3></div>';
+        btn.addEventListener('click', function () { window.openModal(wf); });
+        grid.appendChild(btn);
+      });
+    });
+  </script>
 </body>
 </html>
