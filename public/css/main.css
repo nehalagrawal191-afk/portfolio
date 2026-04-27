@@ -329,12 +329,14 @@ section {
   background: #ffffff;
   border-bottom: 1px solid #F1F5F9;
   overflow: hidden;
+  padding-bottom: 4px;
 }
 
 /* ── BLOG PREVIEW ── */
 #blog-preview {
   background: #ffffff;
   border-bottom: 1px solid #F1F5F9;
+  padding-top: 4px;
 }
 
 #blog-preview .section-inner {
