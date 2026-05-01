@@ -41,7 +41,7 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
     <div class="nav-inner">
       <a href="#" class="nav-brand"><img src="/assets/images/nehal.png" alt="Nehal Agrawal" class="nav-avatar"></a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="/about/">About</a></li>
         <li><a href="#tools-workflows">Tools</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="/blog/">Blog</a></li>
@@ -133,6 +133,12 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
         <div class="video-block">
           <iframe src="https://www.youtube.com/embed/B9z4r2ko6UU" frameborder="0" allowfullscreen title="Community video 2"></iframe>
         </div>
+        <div class="video-block">
+          <iframe src="https://www.youtube.com/embed/xEGFUrlJyw0" frameborder="0" allowfullscreen title="Community video 3"></iframe>
+        </div>
+        <div class="video-block">
+          <iframe src="https://www.youtube.com/embed/b_PsNYDnEGw" frameborder="0" allowfullscreen title="Community video 4"></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -142,17 +148,6 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
     <div class="section-inner">
       <h2 class="section-label">side quests</h2>
       <div id="side-quests-grid"></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-inner">
-      <h2 class="section-label">About Me</h2>
-      <div class="about-layout">
-        <p class="about-text">i'm creative and outspoken, and i spend most of my time at the intersection of AI and go-to-market. i love the outdoors, and i'm known for making canva invites for plans that absolutely don't need canva invites.</p>
-        <img src="/assets/images/nehal_about.jpg" alt="Nehal Agrawal" class="about-photo">
-      </div>
     </div>
   </section>
 

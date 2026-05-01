@@ -20,7 +20,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/modal.css">
 </head>
 <body>
 
@@ -29,7 +28,8 @@
     <div class="nav-inner">
       <a href="/" class="nav-brand"><img src="/assets/images/nehal.png" alt="Nehal Agrawal" class="nav-avatar"></a>
       <ul class="nav-links">
-        <li><a href="/#about">About</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/#tools-workflows">Tools</a></li>
         <li><a href="/#experience">Experience</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/#side-quests">Side quests</a></li>
@@ -50,47 +50,8 @@
 
       <a href="/tools/" style="display:inline-block;font-size:13px;font-weight:500;color:#94A3B8;text-decoration:none;margin-bottom:32px;">&larr; All tools &amp; workflows</a>
 
-      <h1 style="font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,4vw,32px);font-weight:800;letter-spacing:-0.03em;color:#0F172A;margin-bottom:24px;">Complete Outreach Automation</h1>
-
-      <!-- VIDEO -->
-      <iframe
-        width="100%"
-        height="420"
-        src="https://www.youtube.com/embed/xjiT4VGW52g"
-        frameborder="0"
-        allowfullscreen
-        style="border-radius:12px;margin-bottom:32px;display:block;"
-        title="Complete Outreach Automation demo"
-      ></iframe>
-
-      <!-- CONTENT -->
-      <div style="display:flex;flex-direction:column;gap:20px;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.7;color:#334155;">
-
-        <div>
-          <p style="font-weight:700;color:#0F172A;margin-bottom:4px;">Objective</p>
-          <p>Build a web app to automate end-to-end outreach for Invigilo.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:700;color:#0F172A;margin-bottom:4px;">What I did</p>
-          <p>Used a SQLite database with Claude Code as the orchestration layer and Tailscale for secure multi-user access. Connected Apollo, Lemlist, and PhantomBuster to Outlook and HubSpot for prospecting, sequencing, and follow-ups.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:700;color:#0F172A;margin-bottom:4px;">Results</p>
-          <p>100% reduction in agency costs — stopped using third-party outreach agencies like 1000 Steps and Nuggt.io, and 90% increase in efficiency writing outreach emails and follow-ups for events.</p>
-        </div>
-
-        <!-- TOOLS -->
-        <div style="margin-top:8px;padding-top:24px;border-top:1px solid #F1F5F9;">
-          <p style="font-size:13px;font-weight:600;color:#475569;margin-bottom:12px;">Tools Used</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            {['Apollo', 'Lemlist', 'PhantomBuster', 'Claude Code', 'SQLite', 'Tailscale', 'Outlook', 'HubSpot'].map(tool => (
-              <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;color:#334155;">{tool}</span>
-            ))}
-          </div>
-        </div>
-
+      <div id="outreach-content">
+        <!-- Rendered by JS from data.js -->
       </div>
 
       <!-- BACK LINK -->
@@ -100,6 +61,67 @@
 
     </div>
   </main>
+
+  <script src="/js/data.js" is:inline></script>
+  <script is:inline>
+    (function() {
+      var item = (WORKFLOWS_DATA || []).find(function(w) { return w.id === 'workflow-outreach'; });
+      if (!item) return;
+
+      var toolLogoMap = {
+        'Apollo':       'https://logo.clearbit.com/apollo.io',
+        'Lemlist':      'https://logo.clearbit.com/lemlist.com',
+        'PhantomBuster':'https://logo.clearbit.com/phantombuster.com',
+        'Claude Code':  'https://logo.clearbit.com/anthropic.com',
+        'SQLite':       'https://logo.clearbit.com/sqlite.org',
+        'Tailscale':    'https://logo.clearbit.com/tailscale.com',
+        'Outlook':      'https://logo.clearbit.com/microsoft.com',
+        'HubSpot':      'https://logo.clearbit.com/hubspot.com'
+      };
+
+      function esc(str) {
+        if (typeof str !== 'string') return str || '';
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      var videoHTML = item.video
+        ? '<iframe width="100%" height="420" src="' + esc(item.video) + '" frameborder="0" allowfullscreen style="border-radius:12px;margin-bottom:32px;display:block;" title="' + esc(item.title) + ' demo"></iframe>'
+        : '';
+
+      var toolsHTML = '';
+      if (item.tools && item.tools.length) {
+        var chips = item.tools.map(function(t) {
+          var logo = toolLogoMap[t] || ('https://logo.clearbit.com/' + t.toLowerCase().replace(/\s+/g, '') + '.com');
+          return '<span style="display:inline-flex;align-items:center;gap:6px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:20px;padding:5px 14px 5px 10px;">' +
+            '<img src="' + logo + '" alt="' + esc(t) + '" style="width:16px;height:16px;border-radius:3px;object-fit:contain;" onerror="this.style.display=\'none\'">' +
+            '<span style="font-size:12px;font-weight:500;color:#334155;">' + esc(t) + '</span>' +
+            '</span>';
+        }).join('');
+        toolsHTML = '<div style="margin-top:8px;padding-top:24px;border-top:1px solid #F1F5F9;">' +
+          '<p style="font-size:13px;font-weight:600;color:#475569;margin-bottom:12px;">Tools Used</p>' +
+          '<div style="display:flex;flex-wrap:wrap;gap:8px;">' + chips + '</div>' +
+          '</div>';
+      }
+
+      var lineStyle = 'font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.7;color:#334155;';
+      var boldStyle = 'font-weight:700;color:#0F172A;';
+
+      document.getElementById('outreach-content').innerHTML =
+        '<h1 style="font-family:Inter,system-ui,sans-serif;font-size:clamp(22px,4vw,32px);font-weight:800;letter-spacing:-0.03em;color:#0F172A;margin-bottom:24px;">' + esc(item.title) + '</h1>' +
+        videoHTML +
+        '<div style="display:flex;flex-direction:column;gap:20px;">' +
+          '<div><p style="' + lineStyle + '"><span style="' + boldStyle + '">Objective</span></p><p style="' + lineStyle + '">' + esc(item.objective) + '</p></div>' +
+          '<div><p style="' + lineStyle + '"><span style="' + boldStyle + '">What I did</span></p><p style="' + lineStyle + '">' + esc(item.whatIDid) + '</p></div>' +
+          '<div><p style="' + lineStyle + '"><span style="' + boldStyle + '">Results</span></p><p style="' + lineStyle + '">' + esc(item.results) + '</p></div>' +
+          toolsHTML +
+        '</div>';
+    })();
+  </script>
 
 </body>
 </html>

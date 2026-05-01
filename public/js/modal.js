@@ -414,6 +414,12 @@
     var lineStyle = 'font-family:Inter,system-ui,sans-serif;font-size:13px;line-height:1.6;color:#334155;margin:0;';
     var boldStyle = 'font-weight:700;color:#0F172A;';
 
+    var fullPageBtn = item.pageUrl
+      ? '<div style="margin-top:20px;padding-top:16px;border-top:1px solid #F1F5F9;">' +
+          '<a href="' + esc(item.pageUrl) + '" style="font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:500;color:#94A3B8;text-decoration:none;border-bottom:1px solid #E2E8F0;transition:color 0.15s;" onmouseover="this.style.color=\'#475569\'" onmouseout="this.style.color=\'#94A3B8\'">Open full page →</a>' +
+        '</div>'
+      : '';
+
     return '<h2>' + esc(item.title) + '</h2>' +
       imgHTML +
       '<div style="display:flex;flex-direction:column;gap:5px;margin-top:8px;">' +
@@ -421,6 +427,7 @@
         '<p style="' + lineStyle + '"><span style="' + boldStyle + '">What I did —</span> ' + esc(item.whatIDid) + '</p>' +
         '<p style="' + lineStyle + '"><span style="' + boldStyle + '">Results —</span> ' + esc(item.results) + '</p>' +
         toolsHTML +
+        fullPageBtn +
       '</div>';
   }
 

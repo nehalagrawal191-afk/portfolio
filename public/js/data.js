@@ -299,6 +299,7 @@ const WORKFLOWS_DATA = [
     coverImage: 'assets/images/workflows/invigilo_outreach.png',
     coverColor: '#F0F4FF',
     customModal: 'workflow',
+    pageUrl: '/tools/outreach/',
     video: 'https://www.youtube.com/embed/gkj1BqC7z7Q',
     objective: 'build a web app to automate end-to-end outreach for Invigilo.',
     whatIDid: 'used a SQLite database with Claude Code as the orchestration layer and Tailscale for secure multi-user access. Connected Apollo, Lemlist, and PhantomBuster to Outlook and HubSpot for prospecting, sequencing, and follow-ups.',
